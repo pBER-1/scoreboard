@@ -8,13 +8,13 @@
   {
     "id": 2,
     "name": "Björn",
-    "wins": 2,
-    "losses": 2
+    "wins": 0,
+    "losses": 4
   },
   {
     "id": 3,
     "name": "Jonas",
-    "wins": 0,
-    "losses": 4
+    "wins": 2,
+    "losses": 2
   }
 ]

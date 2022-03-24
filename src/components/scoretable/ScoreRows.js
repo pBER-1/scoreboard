@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Row, Col, HeadCol, Inc, Dec, Del } from './ScoreRows.styles.js';
+import { Rows, Row, Col, HeadCol, Inc, Dec, Del } from './ScoreRows.styles.js';
+import arrow from '../../assets/arrow.png';
 
 export const ScoreRows = (props) => {
   const [currentScore, setCurrentScore] = useState();
@@ -42,8 +43,9 @@ export const ScoreRows = (props) => {
     setCurrentScore(currScore);
   };
   return (
-    <>
+    <Rows>
       <Row>
+        <HeadCol>#</HeadCol>
         <HeadCol>Players</HeadCol>
         <HeadCol>Wins</HeadCol>
         <HeadCol>Losses</HeadCol>
@@ -51,17 +53,24 @@ export const ScoreRows = (props) => {
         <HeadCol>Add Loss</HeadCol>
         <HeadCol>Remove</HeadCol>
       </Row>
-      {props.Players.map((player) => (
+      {props.Players.sort(
+        (a, b) => b.wins - b.losses - (a.wins - a.losses)
+      ).map((player, i) => (
         <Row id={player.id}>
+          <Col>{i + 1}</Col>
           <Col>{player.name}</Col>
           <Col>{player.wins}</Col>
           <Col>{player.losses}</Col>
-          <Inc onClick={() => handleScore(player.id, 'wins')}>&#129093;</Inc>
-          <Dec onClick={() => handleScore(player.id, 'losses')}>&#129095;</Dec>
+          <Inc onClick={() => handleScore(player.id, 'wins')}>
+            <img src={arrow} alt="Add win" />
+          </Inc>
+          <Dec onClick={() => handleScore(player.id, 'losses')}>
+            <img src={arrow} alt="Add loss" />
+          </Dec>
           <Del onClick={() => handleDelete(player.id)}>❌</Del>
         </Row>
       ))}
-    </>
+    </Rows>
   );
 };
 

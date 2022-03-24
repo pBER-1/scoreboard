@@ -14,6 +14,8 @@ export const NavWrapper = styled.header`
 `;
 export const Nav = styled.div`
   max-width: 1760px;
+  width: 100%;
+  margin: auto;
   img {
     height: 40px;
   }

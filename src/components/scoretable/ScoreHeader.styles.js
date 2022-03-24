@@ -6,8 +6,12 @@ export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #d8d8d8;
-  border-top: 0px;
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 16px;
+      margin-right: 40px;
+    }
+  }
 `;
 export const AddButton = styled.button`
   background-color: #74b800;
@@ -17,6 +21,10 @@ export const AddButton = styled.button`
   box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.45);
   border-radius: 3px;
   padding: 12px 24px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 12px 12px;
+  }
 `;
 
 export const YesButton = styled(AddButton)`
